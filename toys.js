@@ -66,5 +66,29 @@ disemvowel("hello you freaking suck sir");
 
 //SAME AS BES SOLUTION (:
 
+//Write a function that takes in a string of one or more words, and returns the same string, but with all
+//five or more letter words reversed. Strings passed in will consist of only letters and spaces.
 
-	
+//MY SOLUTION
+
+function spinWords(str){
+  var arr = str.split(" ");
+  var strReverse = []
+  arr.forEach(function(e){
+    if(e.length < 5) {
+      strReverse.push(e);
+    }
+    else if(e.length >= 5) {
+      strReverse.push(e.split('').reverse().join(''));
+    }
+  })
+    return strReverse.join(' ');
+}
+
+//BEST SOLUTION
+
+function spinWords(words){
+  return words.split(' ').map(function (word) {
+    return (word.length > 4) ? word.split('').reverse().join('') : word;
+  }).join(' ');
+}
